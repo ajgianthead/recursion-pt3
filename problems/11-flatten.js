@@ -13,7 +13,17 @@ flatten([1, [2, [3]]]); // [1, 2, 3]
 ***********************************************************************/
 
 function flatten(arr) {
-  // Your code here 
+  // Your code here
+  let flatArr = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (Array.isArray(arr[i])) {
+            flatArr = flatArr.concat(flatten(arr[i]));
+        } else {
+            flatArr.push(arr[i]);
+        }
+    }
+    return flatArr;
 }
   
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
